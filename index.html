@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun!</title>
+    <link rel="icon" href="🎂.png" type="image/png"> <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS Kustom --- */
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #f0e6fa 0%, #e0f7fa 100%); /* Gradien latar belakang lembut */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Menggunakan min-height agar bisa scroll */
+            margin: 0;
+            padding: 20px;
+            overflow-y: auto; /* Memungkinkan scrolling vertikal */
+            overflow-x: hidden; /* Mencegah scroll horizontal */
+        }
+
+        .birthday-card {
+            background-color: #ffffff;
+            border-radius: 25px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            padding: 50px;
+            text-align: center;
+            max-width: 650px;
+            width: 100%;
+            animation: fadeInScale 1.8s ease-out forwards;
+            border: 8px solid #ff69b4;
+            position: relative;
+            overflow: hidden; /* Untuk efek confetti */
+            box-sizing: border-box; /* Agar padding tidak menambah lebar elemen */
+        }
+
+        /* Efek Confetti (CSS Murni) */
+        .birthday-card::before, .birthday-card::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ffd700;
+            border-radius: 50%;
+            opacity: 0;
+            animation: confetti 3s infinite;
+        }
+        .birthday-card::before {
+            top: 10%; left: 10%;
+            animation-delay: 0.5s;
+            background-color: #ff4500;
+        }
+        .birthday-card::after {
+            top: 80%; right: 15%;
+            animation-delay: 1.5s;
+            background-color: #00ced1;
+        }
+
+        @keyframes confetti {
+            0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+            100% { transform: translate(100px, 200px) rotate(720deg); opacity: 0; }
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            color: #e91e63;
+            font-size: 4.5em;
+            margin-bottom: 25px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
+            line-height: 1.1;
+        }
+
+        p {
+            font-family: 'Quicksand', sans-serif;
+            color: #555;
+            font-size: 1.4em;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h3 {
+            font-family: 'Quicksand', sans-serif;
+            color: #4a4a4a;
+            font-size: 1.2em;
+            margin-top: 20px;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .signature {
+            font-family: 'Pacifico', cursive;
+            color: #673ab7;
+            font-size: 1.8em;
+            margin-top: 15px;
+            font-weight: 700;
+        }
+
+        /* Gaya untuk gambar */
+        .birthday-photo {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease-in-out;
+            display: block; /* Agar img tidak memiliki margin bawah ekstra dari inline-block */
+            margin-left: auto; /* Memastikan gambar terpusat */
+            margin-right: auto; /* Memastikan gambar terpusat */
+        }
+
+        .birthday-photo:hover {
+            transform: scale(1.03);
+        }
+
+        /* Animasi fadeInScale */
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        /* --- Media Queries untuk Responsif HP --- */
+        @media (max-width: 768px) { /* Untuk tablet dan ponsel */
+            .birthday-card {
+                padding: 30px 20px; /* Kurangi padding untuk layar kecil */
+                border-width: 5px; /* Kurangi ketebalan border */
+                border-radius: 20px; /* Sedikit kurangi border-radius */
+            }
+
+            h1 {
+                font-size: 3em; /* Perkecil ukuran judul utama */
+                margin-bottom: 15px;
+            }
+
+            p {
+                font-size: 1em; /* Perkecil ukuran paragraf */
+                margin-bottom: 25px;
+                max-width: 95%; /* Izinkan paragraf menggunakan lebar yang lebih besar */
+            }
+
+            h2 {
+                font-size: 1.6em; /* Perkecil ukuran sub-judul */
+                margin-top: 25px;
+            }
+
+            h3 {
+                font-size: 1em; /* Perkecil ukuran teks "Dengan penuh cinta" */
+                margin-top: 15px;
+            }
+
+            .signature {
+                font-size: 1.5em; /* Perkecil ukuran tanda tangan */
+                margin-top: 10px;
+            }
+
+            .birthday-photo {
+                margin-bottom: 20px; /* Kurangi margin bawah gambar */
+            }
+        }
+
+        @media (max-width: 480px) { /* Khusus untuk ponsel yang sangat kecil */
+            .birthday-card {
+                padding: 25px 15px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            p {
+                font-size: 0.9em;
+                margin-bottom: 20px;
+            }
+
+            .signature {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="birthday-card">
+        <h1>Selamat Ulang Tahun!</h1>
+        <p>
+            Di hari istimewa ini, kami ingin mengirimkan semua kebahagiaan dan tawa untukmu.
+            Semoga setiap momen di hari ulang tahunmu ini dipenuhi dengan cinta, kejutan indah,
+            dan kenangan tak terlupakan. Kami berharap semua impianmu terwujud dan tahun ini
+            menjadi awal dari petualangan baru yang penuh sukacita dan kesuksesan.
+        </p>
+
+        <img src="foto.jpeg" alt="Foto Ulang Tahun" class="birthday-photo">
+
+        <h2>Dari kami semua yang menyayangimu!</h2>
+        <h3>Dengan penuh cinta,</h3>
+        <p class="signature">Hilman Gustiana</p>
+    </div>
+
+</body>
+</html>
